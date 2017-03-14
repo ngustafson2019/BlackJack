@@ -290,6 +290,9 @@
 				document.getElementById("println").innerHTML = "First Card: " + num1 + ", Second Card: " + num2;
 			}
 		
+		
+		document.getElementById("dealerCard" + 0).src = "images/card_back.png";
+		document.getElementById("dealerCard" + 1).src = "images/card_back.png";
 		totalSum = sum;
 		document.getElementById("totalSumP").innerHTML = "Your Total Sum: " + totalSum;
 
@@ -297,7 +300,7 @@
 
 		if (totalSum == 21){
 				document.getElementById("println").innerHTML = "BLACKJACK!";
-		 		money = parseInt(money)+(parseInt(document.getElementById("betAmount").value)*2) + parseInt(document.getElementById("betAmount").value);
+		 		money = parseInt(money)+(parseInt(document.getElementById("betAmount").value)*1.5) + parseInt(document.getElementById("betAmount").value);
 		 		document.getElementById("totalMoney").innerHTML = "Your Total Money: " + money;
 		 		document.getElementById("stayBtn").disabled = true;
 				document.getElementById("hitBtn").disabled = true;
@@ -664,6 +667,7 @@
 		 		money = parseInt(money)+parseInt(document.getElementById("betAmount").value) + parseInt(document.getElementById("betAmount").value);
 			 	document.getElementById("totalMoney").innerHTML = "Your Total Money: " + money;
 			 } else if (dealerSum > totalSum){
+
 			 	document.getElementById("println").innerHTML = "Dealer's Sum: " + dealerSum + ", YOU LOST TO THE DEALER";
 			 	if (doubleDownVar === true){
 		 			money = parseInt(money) - (parseInt(document.getElementById("betAmount").value)/2);
@@ -672,6 +676,7 @@
 			 	document.getElementById("totalMoney").innerHTML = "Your Total Money: " + money;
 			 }else{
 			 	document.getElementById("println").innerHTML = "Dealer's Sum: " + dealerSum + ", YOU TIED WITH THE DEALER";
+			 	money = parseInt(money)+parseInt(document.getElementById("betAmount").value);
 			 	if (doubleDownVar === true){
 		 			money = parseInt(money) - (parseInt(document.getElementById("betAmount").value)/2);
 		 			console.log("yup");
